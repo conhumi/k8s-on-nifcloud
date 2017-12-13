@@ -1,0 +1,10 @@
+version : '2'
+
+services:
+  kube_cli:
+    build : .
+    working_dir: /root
+    volumes:
+      - .:/root
+    tty: True
+
