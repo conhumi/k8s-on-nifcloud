@@ -1,0 +1,19 @@
+#
+# all.yml
+#
+---
+computing:
+  region: <YOUR_CLUSTER_REGION>
+  availability_zone: <YOUR_CLUSTER_ZONE>
+  instance_type: <INSTANCE_TYPE_NAME>
+  image_id: <YOUR_IMAGE_IE>
+  key_name: <YOUR_SSH_KEY_NAME>
+  security_group: <YOUR_SECURITY_GROUP_NAME>
+  root_password: <YOUR_ROOT_PASSWORD>
+credentials:
+  access_key: <YOUR_ACCESS_KEY>
+  secret_key: <YOUR_SECRET_ACCESS_LEY>
+private_network:
+  id: <YOUR_PLAN_ID>
+  address: <YOUR_PLAN_ADDRESS>
+  gateway: <YOUR_PLAN_GATEWAY>

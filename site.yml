@@ -1,0 +1,11 @@
+#
+# site.yml
+#
+---
+
+- name: provision vms
+  hosts: all
+  connection: local
+  roles:
+    - nifcloud.nifcloud
+    - nifcloud_vm
