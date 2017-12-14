@@ -1,35 +1,13 @@
+#
+# main.yml
+#
+---
 - name: Install (Requests) python package
   local_action:
     module: pip
     name: requests
 
-- name: Start Master server
-  local_action:
-    module: nifcloud
-    access_key: "{{ credentials.access_key}}"
-    secret_access_key: "{{ credentials.secret_key}}"
-    endpoint: "computing.{{ computing.region }}.api.cloud.nifty.com"
-    instance_id: "{{ inventory_hostname }}"
-    state: "running"
-    image_id: "{{ computing.image_id }}"
-    key_name: "{{ computing.key_name }}"
-    instance_type: "{{ computing.instance_type }}"
-    availability_zone: "{{ computing.availability_zone }}"
-    security_group: "{{ computing.security_group}}"
-    accounting_type: "2"
-    ip_type: "static"
-    startup_script: "roles/nifcloud_vm/templates/startup_master.sh"
-    startup_script_vars:
-      root_password: "{{ computing.root_password }}"
-      ip_addr: "{{ ansible_ssh_host }}/24"
-      network_addr: "{{ private_network.address }}"
-      gateway: "{{ private_network.gateway }}"
-    network_interface:
-      - network_id: "{{ private_network.id }}"
-        ipAddress: "static"
-  when: "'kube-master' in group_names"
-
-- name: Start non Master server
+- name: Start server
   local_action:
     module: nifcloud
     access_key: "{{ credentials.access_key}}"
@@ -44,7 +22,7 @@
     security_group: "{{ computing.security_group}}"
     accounting_type: "2"
     ip_type: "none"
-    startup_script: "roles/nifcloud_vm/templates/startup_nonmaster.sh"
+    startup_script: "roles/nifcloud_vm/templates/startup.sh"
     startup_script_vars:
       root_password: "{{ computing.root_password }}"
       ip_addr: "{{ ansible_ssh_host }}/24"
@@ -53,4 +31,3 @@
     network_interface:
       - network_id: "{{ private_network.id }}"
         ipAddress: "static"
-  when: "'kube-master' not in group_names"
