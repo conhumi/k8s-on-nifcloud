@@ -2,7 +2,7 @@ Jinja2==2.10
 MarkupSafe==1.0
 PyNaCl==1.2.1
 PyYAML==3.12
-ansible==2.3.0.0
+ansible==4.2.0
 apache-libcloud==2.2.1
 asn1crypto==0.23.0
 backports.ssl-match-hostname==3.4.0.2
