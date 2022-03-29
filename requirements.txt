@@ -19,7 +19,7 @@ ipaddress==1.0.18
 kitchen==1.1.1
 kubespray==0.5.2
 netaddr==0.7.19
-paramiko==2.4.0
+paramiko==2.10.1
 pyasn1==0.4.2
 pycparser==2.18
 pycrypto==2.6.1
